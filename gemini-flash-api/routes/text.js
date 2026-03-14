@@ -4,7 +4,7 @@ import express from 'express';
 export default function createTextRouter({ genai, model }) {
   const router = express.Router();
 
-  router.post('/generate-text', async (req, res) => {
+  router.post('/', async (req, res) => {
     const { prompt } = req.body;
 
     try {

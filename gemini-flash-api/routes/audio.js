@@ -1,13 +1,13 @@
 import express from 'express';
 import multer from 'multer';
 
-const upload = multer();
 
+const upload = multer();
 
 export default function createAudioRouter({ genai, model }) {
   const router = express.Router();
 
-  router.post('/generate-from-audio', upload.single('audio'), async (req, res) => {
+  router.post('/', upload.single('audio'), async (req, res) => {
     const { prompt } = req.body;
 
     const base64Audio = req.file.buffer.toString('base64');

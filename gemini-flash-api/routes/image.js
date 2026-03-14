@@ -1,13 +1,13 @@
 import express from 'express';
 import multer from 'multer';
 
-const upload = multer();
 
+const upload = multer();
 
 export default function createImageRouter({ genai, model }) {
   const router = express.Router();
 
-  router.post('/generate-from-image', upload.single('image'), async (req, res) => {
+  router.post('/', upload.single('image'), async (req, res) => {
     const { prompt } = req.body;
 
     const base64Image = req.file.buffer.toString('base64');

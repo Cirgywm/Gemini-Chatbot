@@ -1,13 +1,13 @@
 import express from 'express';
 import multer from 'multer';
 
-const upload = multer();
 
+const upload = multer();
 
 export default function createDocumentRouter({ genai, model }) {
   const router = express.Router();
 
-  router.post('/generate-from-document', upload.single('document'), async (req, res) => {
+  router.post('/', upload.single('document'), async (req, res) => {
     const { prompt } = req.body;
 
     const base64Document = req.file.buffer.toString('base64');
